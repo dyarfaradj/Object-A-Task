@@ -14,6 +14,7 @@ const ListWrapper = styled.div`
 
 const Pagination = styled.div`
   display: flex;
+  padding-top: 20px;
 `;
 
 const PaginationText = styled.span`
