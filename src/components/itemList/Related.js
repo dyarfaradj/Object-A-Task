@@ -4,6 +4,7 @@ import { colors } from "./../../util/theme";
 
 const Container = styled.div`
   width: 165px;
+  padding: 0 20px 20px;
 `;
 
 const Title = styled.h3`

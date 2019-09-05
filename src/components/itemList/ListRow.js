@@ -7,23 +7,23 @@ import { colors, boxShadow, borderRadius } from "./../../util/theme";
 const Wrapper = styled.div`
   position: relative;
   display: flex;
-  flex-direction: space-between;
+  justify-content: space-between;
   flex-direction: column;
   margin-bottom: 30px;
-  height: 153px;
   box-shadow: ${boxShadow};
   background: ${colors.grayDark2};
 `;
 
 const TopRow = styled.div`
+  padding: 10px;
   padding-left: 150px;
   display: flex;
   align-items: center;
 `;
 
 const BottomRow = styled.div`
+  padding: 10px;
   padding-left: 150px;
-  margin-top: 26px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -65,8 +65,8 @@ const Tag = styled.span`
 
 const ImgBox = styled.div`
   position: absolute;
-  height: 117px;
-  width: 128px;
+  height: 115px;
+  width: 115px;
   border-radius: ${borderRadius};
   overflow: hidden;
   top: 50%;

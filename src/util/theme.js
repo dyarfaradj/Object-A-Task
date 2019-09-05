@@ -12,6 +12,6 @@ export const colors = {
   blue: "rgba(80, 120, 191, 1)"
 };
 
-export const boxShadow = `${colors.lightBlack} 4px 4px 1px 0px`;
+export const boxShadow = `${colors.lightBlack} 5px 5px 1px 0px`;
 
 export const borderRadius = "3px";

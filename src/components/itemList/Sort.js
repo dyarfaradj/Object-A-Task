@@ -6,6 +6,7 @@ import { GlobalContext } from "../../context/GlobalContext";
 
 const Wrapper = styled.div`
   width: 165px;
+  padding: 0 20px 20px;
   display: flex;
   flex-direction: column;
 `;

@@ -16,6 +16,10 @@ const ListWrapper = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
+  @media (max-width: 850px) {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
 `;
 
 const ItemList = () => {
