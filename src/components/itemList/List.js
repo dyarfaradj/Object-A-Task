@@ -5,7 +5,8 @@ import { listItems } from "../../util/mock";
 import { GlobalContext } from "../../context/GlobalContext";
 
 const Wrapper = styled.div`
-  width: 693px;
+  max-width: 693px;
+  padding: 10px;
 `;
 
 const ListWrapper = styled.div`

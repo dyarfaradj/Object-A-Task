@@ -8,10 +8,8 @@ const Wrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   height: 50px;
-  width: 1444px;
+  margin: 0 50px;
   border: 1px solid black;
-  margin-left: auto;
-  margin-right: auto;
   background-color: ${colors.lightBlack};
   color: ${colors.gray};
   border-width: 2px;

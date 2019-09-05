@@ -12,10 +12,8 @@ const Wrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   height: 50px;
-  width: 1448px;
   border: 1px solid black;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 50px;
   background-color: ${colors.lightBlack};
   color: white;
   padding: 0 10px;

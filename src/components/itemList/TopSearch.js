@@ -9,8 +9,9 @@ const Wrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 10px;
   padding-top: 20px;
-  width: 693px;
+  max-width: 693px;
   margin: auto;
   padding-bottom: 30px;
 `;
@@ -24,7 +25,7 @@ const SearchLogo = styled.img`
 const SearchWrapper = styled.div`
   display: flex;
   padding-bottom: 23px;
-  width: 690px;
+  width: 100%;
 `;
 
 const Search = styled.div`
@@ -70,7 +71,6 @@ const SearchButton = styled.button`
 `;
 
 const DefinitionBox = styled.fieldset`
-  height: 56px;
   border-radius: 3px;
   border-style: solid;
   border-width: 1px;
