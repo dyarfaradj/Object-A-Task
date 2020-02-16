@@ -113,17 +113,17 @@ const HashTag = styled.span`
 `;
 
 const ListRow = ({ data }) => {
-  const { title, text, img, tags, score, country, city } = data;
+  const { name, bio, avatar, skills, score, country, city } = data;
 
   return (
     <Wrapper>
       <ImgBox>
-        <Img src={img} />
+        <Img src={avatar} />
       </ImgBox>
       <TopRow>
         <div>
-          <Title>{title}</Title>
-          <Text>{text}</Text>
+          <Title>{name}</Title>
+          <Text>{bio}</Text>
         </div>
         <ScoreBox>
           <ScoreLogo src={scoreLogo} alt="scoreLogo" />
@@ -134,7 +134,7 @@ const ListRow = ({ data }) => {
         <TagsBox>
           <HashTag>#</HashTag>
           <Tags>
-            {tags.map((tag, indx) => (
+            {skills.map((tag, indx) => (
               <Tag key={indx}>{tag}</Tag>
             ))}
           </Tags>

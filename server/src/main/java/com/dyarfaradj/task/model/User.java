@@ -24,6 +24,7 @@ public class User {
     @ElementCollection(targetClass=String.class)
     private List<String> skills;
     private String city;
+    private String bio;
     private String country;
     private Integer score;
     private String avatar;

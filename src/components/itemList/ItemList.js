@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import TopSearch from "./TopSearch";
 import Related from "./Related";
@@ -23,12 +23,20 @@ const ListWrapper = styled.div`
 `;
 
 const ItemList = () => {
+  const [userData, setUserData] = useState(null);
+
+  useEffect(() => {
+    fetch("https://ss-task-server.herokuapp.com/rest/user/all")
+      .then(response => response.json())
+      .then(data => setUserData(data));
+  }, []);
+
   return (
     <Wrapper>
       <TopSearch />
       <ListWrapper>
         <Related />
-        <List />
+        {userData && <List userData={userData} />}
         <Sort />
       </ListWrapper>
     </Wrapper>

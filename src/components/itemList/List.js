@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import styled from "styled-components";
 import ListRow from "./ListRow";
-import { listItems } from "../../util/mock";
+import { userData } from "../../util/mock";
 import { GlobalContext } from "../../context/GlobalContext";
 
 const Wrapper = styled.div`
@@ -42,20 +42,22 @@ const getItterableArr = length => {
   return Array.apply(null, Array(length));
 };
 
-const List = () => {
+const List = props => {
+  const { userData } = props;
+  console.log(userData);
   const itemsPerPage = 3;
   const [paginationButtons, setPaginationButtons] = useState(
-    getItterableArr(Math.ceil(listItems.length / itemsPerPage))
+    getItterableArr(Math.ceil(userData.length / itemsPerPage))
   );
   const [currentPage, setCurrentPage] = useState(1);
   const [currentPageItems, setCurrentPageItems] = useState(
-    listItems.slice(0, itemsPerPage)
+    userData.slice(0, itemsPerPage)
   );
   const { countyFilter, textFilter } = useContext(GlobalContext);
 
   const paginate = pageNumber => {
     if (
-      pageNumber > Math.ceil(listItems.length / itemsPerPage) ||
+      pageNumber > Math.ceil(userData.length / itemsPerPage) ||
       pageNumber < 1
     )
       return;
@@ -63,19 +65,19 @@ const List = () => {
     const pageIndex = pageNumber - 1;
     const itemsFromIndex = pageIndex * itemsPerPage;
     const itemsToIndex = pageIndex * itemsPerPage + itemsPerPage;
-    const newPageItems = listItems.slice(itemsFromIndex, itemsToIndex);
+    const newPageItems = userData.slice(itemsFromIndex, itemsToIndex);
     setCurrentPageItems(newPageItems);
   };
 
   useEffect(() => {
-    const filteredList = listItems
+    const filteredList = userData
       .filter(item =>
         countyFilter === "All Cities" ? true : item.city === countyFilter
       )
       .filter(
         item =>
-          item.title.toLowerCase().includes(textFilter) ||
-          item.text.toLowerCase().includes(textFilter)
+          item.name.toLowerCase().includes(textFilter) ||
+          item.bio.toLowerCase().includes(textFilter)
       );
     setCurrentPage(1);
     setCurrentPageItems(filteredList.slice(0, itemsPerPage));
@@ -88,7 +90,7 @@ const List = () => {
     <Wrapper>
       <ListWrapper>
         {currentPageItems.map(item => {
-          return <ListRow key={item.key} data={item} />;
+          return <ListRow key={item.id} data={item} />;
         })}
       </ListWrapper>
       <Pagination>
