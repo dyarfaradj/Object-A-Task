@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import scoreLogo from "../../static/icons/scorelogo.png";
 import locationLogo from "../../static/icons/locationlogo.png";
-import { colors, boxShadow, borderRadius } from "./../../util/theme";
+import { colors, boxShadow, borderRadius } from "../../util/theme";
 
 const Wrapper = styled.div`
   position: relative;
@@ -112,7 +112,7 @@ const HashTag = styled.span`
   font-weight: 700;
 `;
 
-const ListRow = ({ data }) => {
+const ProfileCard = ({ data }) => {
   const { name, bio, avatar, skills, score, country, city } = data;
 
   return (
@@ -134,9 +134,7 @@ const ListRow = ({ data }) => {
         <TagsBox>
           <HashTag>#</HashTag>
           <Tags>
-            {skills.map((tag, indx) => (
-              <Tag key={indx}>{tag}</Tag>
-            ))}
+            {skills && skills.map((tag, indx) => <Tag key={indx}>{tag}</Tag>)}
           </Tags>
         </TagsBox>
         <LocationBox>
@@ -150,4 +148,4 @@ const ListRow = ({ data }) => {
   );
 };
 
-export default ListRow;
+export default ProfileCard;

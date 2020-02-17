@@ -1,7 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import styled from "styled-components";
-import ListRow from "./ListRow";
-import { userData } from "../../util/mock";
+import ProfileCard from "./ProfileCard";
 import { GlobalContext } from "../../context/GlobalContext";
 
 const Wrapper = styled.div`
@@ -84,13 +83,13 @@ const List = props => {
     setPaginationButtons(
       getItterableArr(Math.ceil(filteredList.length / itemsPerPage))
     );
-  }, [countyFilter, textFilter]);
+  }, [countyFilter, textFilter, userData]);
 
   return (
     <Wrapper>
       <ListWrapper>
         {currentPageItems.map(item => {
-          return <ListRow key={item.id} data={item} />;
+          return <ProfileCard key={item.id} data={item} />;
         })}
       </ListWrapper>
       <Pagination>

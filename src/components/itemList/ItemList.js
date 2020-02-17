@@ -25,10 +25,19 @@ const ListWrapper = styled.div`
 const ItemList = () => {
   const [userData, setUserData] = useState(null);
 
+  const getData = async () => {
+    const resp = await fetch(
+      "https://ss-task-server.herokuapp.com/rest/user/all",
+      {
+        method: "GET"
+      }
+    );
+    const data = await resp.json();
+    setUserData(data);
+  };
+
   useEffect(() => {
-    fetch("https://ss-task-server.herokuapp.com/rest/user/all")
-      .then(response => response.json())
-      .then(data => setUserData(data));
+    getData();
   }, []);
 
   return (
@@ -36,7 +45,7 @@ const ItemList = () => {
       <TopSearch />
       <ListWrapper>
         <Related />
-        {userData && <List userData={userData} />}
+        {userData ? <List userData={userData} /> : <p>Loading...</p>}
         <Sort />
       </ListWrapper>
     </Wrapper>
