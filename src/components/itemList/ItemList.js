@@ -27,14 +27,18 @@ const ItemList = () => {
   const [userData, setUserData] = useState(null);
 
   const getData = async () => {
-    const resp = await fetch(
-      "https://ss-task-server.herokuapp.com/api/v1/users/",
-      {
-        method: "GET"
-      }
-    );
-    const data = await resp.json();
-    setUserData(data);
+    try {
+      const resp = await fetch(
+        "https://ss-task-server.herokuapp.com/api/v1/users/",
+        {
+          method: "GET"
+        }
+      );
+      const data = await resp.json();
+      setUserData(data);
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   useEffect(() => {

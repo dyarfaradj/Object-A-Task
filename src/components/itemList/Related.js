@@ -36,8 +36,8 @@ const Related = () => {
     <Container>
       <Title>RELATED SEARCHES</Title>
       <Ul>
-        {mockRelatedData.map(text => (
-          <Li>{text}</Li>
+        {mockRelatedData.map((text, i) => (
+          <Li key={i}>{text}</Li>
         ))}
       </Ul>
     </Container>

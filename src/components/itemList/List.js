@@ -41,10 +41,9 @@ const getItterableArr = length => {
   return Array.apply(null, Array(length));
 };
 
-const List = props => {
-  const { userData } = props;
+const itemsPerPage = 3;
 
-  const itemsPerPage = 3;
+const List = ({ userData }) => {
   const [paginationButtons, setPaginationButtons] = useState(
     getItterableArr(Math.ceil(userData.length / itemsPerPage))
   );
