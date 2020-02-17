@@ -106,9 +106,11 @@ const List = props => {
             {index + 1}
           </PaginationButton>
         ))}
-        <PaginationButtonNext onClick={() => paginate(currentPage + 1)}>
-          >
-        </PaginationButtonNext>
+        {paginationButtons.length > 1 && (
+          <PaginationButtonNext onClick={() => paginate(currentPage + 1)}>
+            >
+          </PaginationButtonNext>
+        )}
       </Pagination>
     </Wrapper>
   );
