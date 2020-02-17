@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { colors } from "./../../util/theme";
 import chevronDown from "../../static/icons/chevronDown.png";
 import { GlobalContext } from "../../context/GlobalContext";
+import { mockedCities } from "../../util/mock";
 
 const Wrapper = styled.div`
   width: 165px;
@@ -95,7 +96,6 @@ const RadioInput = styled.input`
 
 const Sort = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
-  const options = ["All Cities", "Stockholm", "Berlin", "New York"];
   const { countyFilter, setCountyFilter } = useContext(GlobalContext);
   return (
     <Wrapper>
@@ -106,17 +106,17 @@ const Sort = () => {
           <Arrow src={chevronDown} open={drawerOpen} alt="chevronDown" />
         </DrawerButton>
         <DrawerOptions open={drawerOpen}>
-          {options.map(option => {
+          {mockedCities.map(city => {
             return (
-              <Option onClick={() => setCountyFilter(option)} key={option}>
+              <Option onClick={() => setCountyFilter(city)} key={city}>
                 <RadioInput
                   name="countyFilter"
                   type="radio"
-                  value={option}
-                  checked={option === countyFilter}
+                  value={city}
+                  checked={city === countyFilter}
                   readOnly
                 ></RadioInput>
-                <OptionText>{option}</OptionText>
+                <OptionText>{city}</OptionText>
               </Option>
             );
           })}

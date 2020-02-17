@@ -4,6 +4,7 @@ import TopSearch from "./TopSearch";
 import Related from "./Related";
 import List from "./List";
 import Sort from "./Sort";
+import Loader from "./Loader";
 
 const Wrapper = styled.div`
   height: 100%;
@@ -27,7 +28,7 @@ const ItemList = () => {
 
   const getData = async () => {
     const resp = await fetch(
-      "https://ss-task-server.herokuapp.com/rest/user/all",
+      "https://ss-task-server.herokuapp.com/api/v1/users/",
       {
         method: "GET"
       }
@@ -45,7 +46,7 @@ const ItemList = () => {
       <TopSearch />
       <ListWrapper>
         <Related />
-        {userData ? <List userData={userData} /> : <p>Loading...</p>}
+        {userData ? <List userData={userData} /> : <Loader />}
         <Sort />
       </ListWrapper>
     </Wrapper>

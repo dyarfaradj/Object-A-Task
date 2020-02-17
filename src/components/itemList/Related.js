@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { colors } from "./../../util/theme";
+import { mockRelatedData } from "../../util/mock";
 
 const Container = styled.div`
   width: 165px;
@@ -35,11 +36,9 @@ const Related = () => {
     <Container>
       <Title>RELATED SEARCHES</Title>
       <Ul>
-        <Li>#3Danimation</Li>
-        <Li>#Visualeffects</Li>
-        <Li>#MotionCaptureArtist</Li>
-        <Li>#SFXcoordinator</Li>
-        <Li>#CGIartist</Li>
+        {mockRelatedData.map(text => (
+          <Li>{text}</Li>
+        ))}
       </Ul>
     </Container>
   );
