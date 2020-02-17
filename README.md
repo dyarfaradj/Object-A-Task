@@ -7,6 +7,10 @@ This is a technical task for ObjectA Skilldar
 
 
 
+### Frontend hosted on Netlify
+### Backend hosted on Heroku
+
+
 ### Prerequisites
 
 To install all required dependencies, in the project directory, run:
